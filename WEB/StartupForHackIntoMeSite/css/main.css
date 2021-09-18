@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    transition: all ease-in-out .3s;
+    -ms-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -webkit-transition: all ease-in-out .3s;
+
+    font-family: Exo, sans-serif;
+    font-size: calc(1vh + 1vw);
+}
+
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+    background: rgba(53, 53, 53, 0.8);
+}
+
+body {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+
+    background: rgba(194,17,97,1);
+    background: -moz-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(194,17,97,1)), color-stop(33%, rgba(19,110,153,1)), color-stop(51%, rgba(19,120,145,1)), color-stop(71%, rgba(85,104,161,1)), color-stop(100%, rgba(39,103,230,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: linear-gradient(135deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c21161', endColorstr='#2767e6', GradientType=1 );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* HEADER = MSGS = SECRET */
+header {
+    text-align: center;
+    padding: .5vh 0;
+    background: wheat;
+}
+
+/* NAVBAR */
+nav {
+    margin: 10vh 0 0 0;
+    display: flex;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 1em 0;
+    flex: 1 1 1em;
+    color: #000;
+    background: rgba(255, 255, 255, .8);
+}
+
+nav a:hover, nav a:active {
+    background: rgba(0, 0, 0, 0.8);
+    color: #FFF;
+    box-shadow: 0 3px 10px #000; 
+}
+
+nav a:last-child {
+    animation: rainbowGray infinite 1s;
+}
+
+#wrapper {
+    display: block;
+}
+
+#wrapper form {
+    text-align: center;
+    display: block;
+    width: 35%;
+    margin: 3em auto;
+    background: rgba(20, 20, 20, .3);
+    padding: 2.25em;
+    border-radius: .5em;
+}
+
+#wrapper form input {
+    margin: 1em 0 0 0;
+}
+
+#wrapper form label {
+    display: block;
+    text-align: left;
+    color: #FFF;
+}
+
+#wrapper form input:not(#submitLogin) {
+    outline: none;
+    border: 1px solid #000;
+    padding: 1em 0;
+    text-align: center;
+    width: 100%;
+}
+
+#wrapper form input:not(#submitLogin):focus {
+    background: #000;
+    color: #FFF;
+}
+
+#wrapper form input#submitLogin {
+    outline: none;
+    border: 1px solid #000;
+    padding: 1em 0;
+    text-align: center;
+    margin: 1em 0 0 0;
+    width: 100%;
+    background: rgb(30, 144, 255, .5);
+}
+
+#wrapper form input#submitLogin:not(:disabled):hover {
+    background: rgb(30, 144, 255, .8);
+    color: #FFF;
+    cursor: pointer;
+}
+
+#wrapper form input#submitLogin:disabled {
+    background: rgba(255, 0, 0, .5);
+}
+
+#wrapper form input#submitLogin:disabled:hover {
+    background: rgba(255, 0, 0, .8);
+}
+
+#message {
+    margin: 1em 0 0 0;
+    display: block;
+}
+
+#message.error {
+    color: #FF0000;
+}
+
+#message.valid {
+    color: #00FF00;
+}
+
+/* FOOTER */
+footer {
+    display: block;
+    text-align: center;
+    height: 100%;
+    padding: 1em 0;
+    background: rgba(255, 255, 255, .8);
+    margin: 1em 0 0 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 640px) {
+    body {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    * {
+      font-size: calc(1vh + 1vw);
+    }
+}

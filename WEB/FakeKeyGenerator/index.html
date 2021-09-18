@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fake Key Generator</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+				font-size: calc(1.75vw + 1.75vh);
+			}
+
+			#parts .part button, form input[type="button"] {
+				padding: 0 1vw;
+			}
+
+			form input[type="number"] {
+				max-width: 20vw;
+			}
+
+			form hr {
+				max-width: 50%;
+				margin: 2vh 0;
+			}
+
+			form select {
+				text-align-last: center;
+			}
+
+			form input[type="number"], form input[type="text"] {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="output">
+			KEY: <span class="key">NOT GENERATED</span>
+		</div>
+		<br>
+
+		<form>
+			<h3>PART</h3>
+			<label for="part_len">Length of part: </label>
+			<input type="number" id="part_len" value="5" min="3" max="16">
+			<br>
+			<label for="part_chars">Characters for part: </label>
+			<select id="part_chars">
+				<option value="L" selected>L(ower)</option>
+				<option value="U">U(pper)</option>
+				<option value="LU">LU</option>
+				<option value="N">N(umeric)</option>
+				<option value="LN">LN</option>
+				<option value="UN">UN</option>
+				<option value="LUN">LUN</option>
+			</select>
+			<br>
+			<label for="part_sep">Part separator: </label>
+			<select id="part_sep">
+				<option value="-" selected>-</option>
+				<option value="|">|</option>
+				<option value="#">#</option>
+			</select>
+			<br>
+			<input type="button" id="add_part" value="Add part">
+			<input type="button" id="gen_key" value="Generate">
+			<h3>EXPORT</h3>
+			To file: <input type="text" id="export_name" value="random_keys.txt">
+			<br>
+			How many: <input type="number" min="1" max="99999" id="export_num" value="16">
+			<br>
+			<input type="button" id="export_keys" value="Export">
+		</form>
+
+		<br>
+		<h3>PARTS</h3>
+		<div id="parts"></div>
+
+		<script type="text/javascript">
+			NodeList.prototype.indexOf = function(obj){
+				for(let i = 0; i < this.length; i++){
+					if(obj === this[i]){
+						return i;
+					}
+				}
+
+				return -1;
+			}
+
+			let alphaLow = "abcdefghijklmnopqrstuvwxyz";
+			let alphaUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			let numeric = "0123456789";
+			let characters = {
+				L: alphaLow,
+				U: alphaUp,
+				LU: alphaLow + alphaUp,
+				N: numeric,
+				LN: alphaLow + numeric,
+				UN: alphaUp + numeric,
+				LUN: alphaLow + alphaUp + numeric
+			};
+			let parts = [];
+
+			function generateId(mask){
+				let prefix = mask && mask.prefix ? mask.prefix : "";
+				let chars = mask && mask.chars ? characters[mask.chars] : alphaLow;
+				let len = mask && mask.len ? mask.len : 8;
+				return prefix + generatePartKey(chars, len);
+			}
+
+			function generatePartKey(chars, len=5){
+				let key = "";
+				for(let i = 0; i < len; i++){
+					let random_index = Math.round(Math.random() * (chars.length - 1));
+					key += chars[random_index];
+				}
+				return key;
+			}
+
+			function createFinalKey(overwrite=false, ret=false){
+				if(parts.length === 0){
+					return;
+				}
+
+				let finalKey = "";
+				let index = 0;
+				for(let part of parts){
+					if(part.value !== null && !overwrite){
+						finalKey += part.value;
+					} else {
+						let newKey = generatePartKey(part.part_chars, part.part_len);
+
+						let part_div = document.querySelectorAll("div#parts div.part")[index];
+						part_div.querySelector("span.value").textContent = newKey;
+
+						part.value = newKey;
+						finalKey += newKey;
+					}
+
+					if(index < parts.length - 1){
+						finalKey += part.part_sep;
+					}
+
+					index++;
+				}
+
+				if(ret){
+					return finalKey;
+				}
+
+				let div_span_key = document.querySelector("div#output span.key");
+				if(div_span_key !== null){
+					div_span_key.textContent = finalKey;
+				}
+			}
+
+			function add_part(len, chars, sep){
+				let part_id = generateId({prefix: "id_", chars: "N", len: 5 });
+				let part_len = !isNaN(len) ? len : document.getElementById("part_len").value;
+				let part_chars = chars || document.getElementById("part_chars").value;
+				let part_sep = sep || document.getElementById("part_sep").value;
+
+				let part_real_chars = characters[part_chars];
+
+				parts.push({
+					part_id: part_id,
+					part_len: parseInt(part_len),
+					part_chars: part_real_chars,
+					part_sep: part_sep,
+					value: null
+				});
+
+				let div_part = document.createElement("div");
+				div_part.className = "part";
+
+				let span_len = document.createElement("span");
+				span_len.className = "len";
+				span_len.textContent = part_len;
+				let span_chars = document.createElement("span");
+				span_chars.className = "chars";
+				span_chars.textContent = part_chars;
+				let span_sep = document.createElement("span");
+				span_sep.className = "sep";
+				span_sep.textContent = part_sep;
+
+				let span_value = document.createElement("span");
+				span_value.className = "value";
+				span_value.textContent = "NONE";
+
+				div_part.innerHTML = `[${part_id}] - [${span_value.outerHTML}] - [${span_len.outerHTML}][${span_chars.outerHTML}][${span_sep.outerHTML}]`;
+
+				let up_btn = document.createElement("button");
+				up_btn.className = "up_btn";
+				up_btn.innerHTML = "&#9650;";
+				up_btn.addEventListener("click", up_btn_handler);
+
+				let down_btn = document.createElement("button");
+				down_btn.className = "down_btn";
+				down_btn.innerHTML = "&#9660;";
+				down_btn.addEventListener("click", down_btn_handler);
+
+				let del_btn = document.createElement("button");
+				del_btn.className = "del_btn";
+				del_btn.innerHTML = "X";
+				del_btn.addEventListener("click", del_btn_handler);
+
+				div_part.innerHTML += "&nbsp;&nbsp;&nbsp;";
+				div_part.appendChild(up_btn);
+				div_part.appendChild(down_btn);
+				div_part.appendChild(del_btn);
+
+				let div_parts = document.getElementById("parts");
+				div_parts.appendChild(div_part);
+
+				createFinalKey();
+			}
+
+
+			function up_btn_handler(e){
+				let el = e.currentTarget.parentNode;
+
+				if(el.previousElementSibling){
+					let oldIndex = el.parentNode.childNodes.indexOf(el);
+					
+					let tmp = parts[oldIndex];
+					parts[oldIndex] = parts[oldIndex - 1];
+					parts[oldIndex - 1] = tmp;
+
+					el.parentNode.insertBefore(el, el.previousElementSibling);
+
+					createFinalKey();
+				}
+			}
+
+			function down_btn_handler(e){
+				let el = e.currentTarget.parentNode;
+
+				if(el.nextElementSibling){
+					let oldIndex = el.parentNode.childNodes.indexOf(el);
+					
+					let tmp = parts[oldIndex];
+					parts[oldIndex] = parts[oldIndex + 1];
+					parts[oldIndex + 1] = tmp;
+
+					el.parentNode.insertBefore(el.nextElementSibling, el);
+
+					createFinalKey();
+				}
+			}
+
+			function del_btn_handler(e){
+				let el = e.currentTarget.parentNode;
+				let oldIndex = el.parentNode.childNodes.indexOf(el);
+
+				parts.splice(oldIndex, 1);
+
+				e.currentTarget.parentNode.remove();
+
+				createFinalKey();
+			}
+
+			function exportKeys(e){
+				let filename = document.getElementById("export_name").value;
+				let keycount = parseInt(document.getElementById("export_num").value);
+
+				if(!filename) {
+					filename = "random_keys.txt";
+				}
+
+				let content = "";
+				for(let i = 0; i < keycount; i++){
+					content += createFinalKey(true, true);
+
+					if(i < keycount - 1){
+						content += "\n";
+					}
+				}
+
+				var dwn_el = document.createElement('a');
+				dwn_el.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+				dwn_el.setAttribute('download', filename);
+				dwn_el.style.display = 'none';
+				document.body.appendChild(dwn_el);
+				dwn_el.click();
+				document.body.removeChild(dwn_el);
+			}
+
+			window.addEventListener("DOMContentLoaded", function(){
+				let add_part_btn = document.getElementById("add_part");
+				add_part_btn.addEventListener("click", add_part);
+
+				let gen_key_btn = document.getElementById("gen_key");
+				gen_key_btn.addEventListener("click", createFinalKey);
+
+				let export_keys_btn = document.getElementById("export_keys");
+				export_keys_btn.addEventListener("click", exportKeys);
+
+				add_part(5, "UN", "-");
+				add_part(5, "UN", "-");
+				add_part(5, "UN", "-");
+				add_part(5, "UN", "-");
+				add_part(5, "UN", "-");
+				createFinalKey();
+			});
+		</script>
+	</body>
+</html>

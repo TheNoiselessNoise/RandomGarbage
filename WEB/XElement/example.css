@@ -1,0 +1,174 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    transition: all ease-in-out .3s;
+    -ms-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -webkit-transition: all ease-in-out .3s;
+
+    font-size: calc(1vh + 1vw);
+}
+
+h2 {
+    text-align: center;
+    padding: 1em 0;
+}
+
+form {
+    width: 60%;
+    background: rgba(0, 0, 0, .2);
+    margin: 0 auto;
+    padding: 1em;
+}
+
+label {
+    display: inline-block;
+    margin: .5em 0;
+}
+
+input[type='text'], select {
+    outline: none;
+    border: 0;
+    padding: .5em 0;
+    text-align: center;
+}
+
+input[type='submit'] {
+    border: 0;
+    outline: none;
+    padding: 1em;
+    display: block;
+}
+
+input[type='submit']:hover {
+    background: dodgerblue;
+    cursor: pointer;
+}
+
+form input:not([type='submit']):hover {
+    background: rgba(0, 0, 0, .3);
+    cursor: pointer;
+}
+
+/* ADMINISTRATION BACK LINK */
+#administration_back_link {
+    position: fixed;
+    left: 0;
+    padding: 1em 2em;
+    text-align: center;
+    color: #000;
+    background: rgba(0, 0, 0, .3);
+    text-decoration: none;
+}
+
+#administration_back_link:hover {
+    background: rgba(100, 100, 100, .33);
+}
+
+/* MAIN MENU START */
+#administration_main_nav {
+    display: block;
+    text-align: center;
+}
+
+#administration_main_nav a {
+    display: inline-block;
+    width: 50%;
+    background: rgba(0, 0, 0, .2);
+    padding: 10vh 0;
+    text-decoration: none;
+    color: #000;
+}
+
+#administration_main_nav a:hover {
+    background: dodgerblue;
+}
+/* MAIN MENU END */
+
+#categories_list {
+    width: 75%;
+    margin: 1em auto;
+}
+
+#category {
+    background: wheat;
+    padding-left: 1em;
+    position: relative;
+}
+
+#category > span {
+    position: absolute;
+    right: 0;
+}
+
+#category > #children_categories {
+    background: violet;
+    padding-left: 1em;
+}
+
+table {
+    margin: 5vh auto;
+}
+
+th, td {
+    padding: 1em .5em;
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+#manufacturers {
+    background: rgba(0, 0, 0, .3);
+}
+
+#manufacturers tr:first-child {
+    background: wheat;
+}
+
+#manufacturers tr:not(:first-child) {
+    background: rgba(220, 220, 220, .33);
+}
+
+#manufacturers tr:not(:first-child) td:hover {
+    background: rgba(220, 220, 220, .99);
+}
+
+/* ORDER ADMINISTRATION PAGE */
+#order_fields {
+    display: block;
+}
+
+#order_fields #field {
+    display: flex;
+    background: rgba(220, 220, 220, .8);
+    margin: 1em 0 0 0;
+}
+
+#order_fields #field input:nth-child(even){
+    border-left: 1px solid #000;
+}
+
+#order_fields #field div {
+    flex: 1 1 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    text-align: center;
+    padding: 1em;
+}
+
+#order_fields #field div:hover {
+    background: #FF0000;
+    cursor: pointer;
+}
+
+#order_fields #field input {
+    flex: 1 1 1em;
+    text-align: center;
+    outline: none;
+    background: none;
+    border: 0;
+    padding: 1em 0;
+}

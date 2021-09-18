@@ -1,0 +1,161 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>OurFitBodies v1.0</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+    <link href="./fonts/fontawesome/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="p5.min.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="fitobjs.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+
+    <div id="loading">
+        <h2>Loading</h2>
+        <i class="fas fa-spinner"></i>
+    </div>
+
+    <nav>
+        <a href="javascript:void(0);"></a>
+        <button id="add_person">ADD PERSON</button>
+        <button id="add_date">ADD MONTH</button>
+        <button id="import">IMPORT</button>
+        <button id="export">EXPORT</button>
+
+        <select id="years">
+            <option value="">-----YEAR-----</option>
+        </select>
+        <select id="months">
+            <option value="">-----MONTH-----</option>
+        </select>
+    </nav>
+
+    <div class="msg_wrapper"></div>
+
+    <div id="file_wrapper">
+        <h2>Choose a .fitdata file</h2>
+        <input type="file" id="file">
+        <div class="close_file_wrapper">X</div>
+    </div>
+
+    <div id="add_person_wrapper" class="spec_wrapper">
+        <h2>Adding a person</h2>
+
+        <label for="person_name">Name:
+            <input id="person_name" type="text">
+        </label>
+        <label for="person_color">Color:
+            <input id="person_color" type="color">
+        </label>
+        <label for="person_start_weight">Current weight:
+            <input id="person_start_weight" type="number" min="50" max="300"> kg
+        </label>
+        <label for="person_target_weight">Target weight:
+            <input id="person_target_weight" type="number" min="50" max="100"> kg
+        </label>
+
+        <div id="add_person_controls">
+            <button id="add_person_cancel">Cancel</button>
+            <button id="add_person_submit">Submit</button>
+        </div>
+    </div>
+
+    <div id="add_date_wrapper" class="spec_wrapper">
+        <h2>Adding a month</h2>
+
+        <label for="year_number">Choose year:
+            <select id="year_number"></select>
+        </label>
+        <label for="month_number">Choose month:
+            <select id="month_number"></select>
+        </label>
+        <label for="person_number">Choose person:
+            <select id="person_number"></select>
+        </label>
+
+        <div id="add_date_controls">
+            <button id="add_date_cancel">Cancel</button>
+            <button id="add_date_submit">Submit</button>
+        </div>
+    </div>
+
+    <div id="day_add_wrapper" class="spec_wrapper">
+        <h2>
+            Adding a day to
+            <span id="day_add_person_name"></span>
+        </h2>
+
+        <label for="day_add_date">Day number:
+            <select id="day_add_date"></select>
+        </label>
+
+        <input type="hidden" id="day_add_person_number">
+
+        <div id="day_add_controls">
+            <button id="day_add_cancel">Cancel</button>
+            <button id="day_add_submit">Submit</button>
+        </div>
+    </div>
+
+    <div id="day_edit_wrapper" class="spec_wrapper">
+        <h2>
+            Editing day
+            <span id="day_edit_date"></span>
+            for
+            <span id="day_edit_person_name"></span>
+        </h2>
+
+        <label for="day_edit_weight">Weight:
+            <input id="day_edit_weight" type="number" min="50" max="300"> kg
+        </label>
+        <h3>Meal</h3>
+        <label for="day_edit_breakfast">Breakfast:
+            <input id="day_edit_breakfast" type="text">
+        </label>
+        <label for="day_edit_snack1">Snack:
+            <input id="day_edit_snack1" type="text">
+        </label>
+        <label for="day_edit_lunch">Lunch:
+            <input id="day_edit_lunch" type="text">
+        </label>
+        <label for="day_edit_snack2">Snack:
+            <input id="day_edit_snack2" type="text">
+        </label>
+        <label for="day_edit_dinner1">Dinner:
+            <input id="day_edit_dinner1" type="text">
+        </label>
+        <label for="day_edit_dinner2">Second dinner:
+            <input id="day_edit_dinner2" type="text">
+        </label>
+
+        <h3>Note</h3>
+        <textarea id="day_edit_note" cols="30" rows="10"></textarea>
+
+        <input type="hidden" id="day_edit_date_number">
+        <input type="hidden" id="day_edit_person_number">
+
+        <div id="day_edit_controls">
+            <button id="day_edit_cancel">Cancel</button>
+            <button id="day_edit_submit">Submit</button>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div id="settings">
+            <label for="min_w">Min. weight:
+                <input type="range" id="min_w">
+            </label>
+
+            <label for="max_w">Max. weight:
+                <input type="range" id="max_w">
+            </label>
+        </div>
+
+        <div id="graphs"></div>
+        <div id="people"></div>
+    </div>
+
+</body>
+</html>

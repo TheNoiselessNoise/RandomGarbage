@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    transition: all ease-in-out .2s;
+    -o-transition: all ease-in-out .2s;
+    -ms-transition: all ease-in-out .2s;
+    -moz-transition: all ease-in-out .2s;
+    -webkit-transition: all ease-in-out .2s;
+}
+
+#grid {
+    display: block;
+    background: #9F9F9F;
+    padding: .5em 0;
+}
+
+table {
+    margin: 0 auto;
+}
+
+table, tr, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+table tr td {
+    padding: 1.25em;
+}
+
+header {
+    background: #4F4F4F;
+    text-align: center;
+    font-size: 18px;
+    color: #FFF;
+    border-bottom: 1px dashed #FFF;
+    display: flex;
+}
+
+header * {
+    padding: .5em 0;
+}
+
+header span {
+    flex: 1 1 1em;
+}
+
+header button {
+    outline: none;
+    background: dodgerblue;
+    border: 0;
+    color: #FFF;
+    cursor: pointer;
+    flex: 0 0 1em;
+}
+
+header button:hover {
+    color: dodgerblue;
+    background: #4F4F4F;
+}
+
+#wrapper,
+#blockWrapper {
+    display: flex;
+}
+
+#levelSettings, 
+#playerSettings,
+#blockTypes,
+#block {
+    padding: .5em;
+    flex: 1 1 1em;
+    text-align: center;
+    background: #4F4F4F;
+    color: #FFF;
+}
+
+#column {
+    display: inline-block;
+}
+
+#playerSettings,
+#blockTypes {
+    border-left: 1px dashed #FFF;
+}
+
+label {
+    display: block;
+}
+
+input[type="number"], 
+input[type="text"], 
+select {
+    display: inline-block;
+    margin: .5em 0;
+    outline: none;
+    border: 0;
+    padding: .5em 0;
+    text-align: center;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+button {
+    display: block;
+    outline: none;
+    background: dodgerblue;
+    border: 0;
+    padding: .5em;
+    margin: .5em auto;
+    color: #FFF;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4F4F4F;
+    color: dodgerblue;
+}
+
+button:disabled {
+    background: red;
+}
+
+button:disabled:hover {
+    background: #4F4F4F;
+    color: red;
+}
+
+#blockSettings {
+    flex: 1 1 1em;
+    background: #4F4F4F;
+    color: #FFF;
+    padding: .5em;
+    text-align: center;
+}
+
+#result {
+    background: #4F4F4F;
+    color: #FFF;
+    padding: 0 1em;
+}
+
+#enemy {
+    display: flex;
+}
+
+#enemy * {
+    flex: 1 1 1em;
+    padding: 0 1em;
+}
+
+#enemy .removeEnemy {
+    background: red;
+    cursor: pointer;
+}
+
+#enemy .removeEnemy:hover {
+    background: #4F4F4F;
+    color: red;
+}

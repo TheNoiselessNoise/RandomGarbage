@@ -1,0 +1,276 @@
+@font-face {
+    font-family: 'devicon';
+    src: url('fonts/devicon.eot'); /* IE9 Compat Modes */
+    src: url('fonts/devicon.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/devicon.woff') format('woff2'), /* Super Modern Browsers */
+         url('fonts/devicon.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('fonts/devicon.svg') format('svg'); /* Legacy iOS */
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    transition: all ease-in-out .3s;
+    -ms-transition: all ease-in-out .3s;
+    -moz-transition: all ease-in-out .3s;
+    -webkit-transition: all ease-in-out .3s;
+}
+
+html {
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+
+    background: rgba(194,17,97,1);
+    background: -moz-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(194,17,97,1)), color-stop(33%, rgba(19,110,153,1)), color-stop(51%, rgba(19,120,145,1)), color-stop(71%, rgba(85,104,161,1)), color-stop(100%, rgba(39,103,230,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    background: linear-gradient(135deg, rgba(194,17,97,1) 0%, rgba(19,110,153,1) 33%, rgba(19,120,145,1) 51%, rgba(85,104,161,1) 71%, rgba(39,103,230,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c21161', endColorstr='#2767e6', GradientType=1 );
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body > sep-arator {
+    display:  block;
+    padding:  .5vh 0;
+    text-align: center;
+    color: #FFF;
+    text-shadow:  0 0 10px #000;
+}
+
+body > sep-arator a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+pre, code {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;
+}
+
+/* HEADER = MSGS = SECRET */
+header {
+    text-align: center;
+    padding: .5vh 0;
+    background: wheat;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 1em 0;
+    flex: 1 1 1em;
+    color: #000;
+    background: rgba(255, 255, 255, .8);
+}
+
+nav a:hover, nav a:active {
+    background: rgba(0, 0, 0, 0);
+    box-shadow: 0 3px 10px #000; 
+}
+
+nav a:last-child {
+    animation: rainbowGray infinite 1s;
+}
+
+about-me {
+    display: block;
+    margin: 1em 0;
+}
+
+/* PROJECTS */
+pro-langs {
+    display: block;
+}
+
+pro-jects {
+    display: block;
+    border-bottom: 1em solid rgba(255, 255, 255, .8)
+}
+
+pro-ject {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: rgba(120, 120, 120, .5);
+    text-align: center;
+}
+
+pro-jects sep-arator {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1em 0;
+    background: rgba(255, 255, 255, .8);
+}
+
+pro-ject * {
+    flex: 1 1 1em;
+    text-align: center;
+    word-wrap: break-word;
+    padding: 1em 0;
+}
+
+pro-ject input[type="text"] {
+    outline: none;
+    border: 0;
+}
+
+pro-ject i {
+    font-size: calc(1vw + 1vh);
+}
+
+pro-ject a {
+    text-decoration: none;
+    animation: rainbow infinite 3s;
+}
+
+pro-ject a:hover {
+    text-shadow: 1px 1px rgba(255, 255, 255, .5);
+}
+
+pro-jects:not(.stop-scale) pro-ject:not(:first-child):hover {
+    background: rgba(120, 120, 120, .9);
+    transform: scale(1.25);
+}
+
+check-mate pro-jects pro-ject,
+check-mate pro-jects pro-ject:hover {
+    transform: none !important;
+}
+
+/* TOP ARROW UP */
+#tothetop {
+    display: block;
+    width: 3.5vw;
+    border-radius: 5vh;
+    text-align: center;
+    padding: 1.5vh 0;
+    text-decoration: none;
+    color: #000;
+    font-size: calc(3vh + 3vw);
+
+    position: fixed;
+    bottom: 3vh;
+    left: 3vh;
+
+    background: rgba(255, 255, 255, .8);
+    cursor: pointer;
+
+    display: none;
+}
+
+#tothetop:hover {
+    background: rgba(0,0,0,0);
+    color: #fff;
+    box-shadow: 0 0 10px #000;
+}
+
+/* LINUX OVER WIN */
+linux-over, check-mate {
+    display: block;
+    background: rgba(120, 120, 120, .5);
+    text-align: center;
+    margin: 1em 0 0 0;
+}
+
+linux-over linux-moto, check-mate mo-to {
+    display: block;
+    padding: 1em 0;
+    color: #000;
+    background: rgba(255, 255, 255, .8);
+}
+
+check-mate mo-to span {
+    font-weight: bold;
+}
+
+linux-over pro-jects pro-ject:last-child {
+    background: rgba(245, 222, 179, .5);
+    box-shadow: 0 0 10px wheat;
+}
+
+linux-over pro-jects pro-ject:hover {
+    background: rgba(245, 222, 179, .75);
+    transform: scale(1.15);
+}
+
+/* FOOTER */
+footer {
+    display: block;
+    text-align: center;
+    height: 100%;
+    padding: 1em 0;
+    background: rgba(255, 255, 255, .8);
+    margin: 1em 0 0 0;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+/* ABOUT ME */
+about-me {
+    display:  block;
+    margin:  1em auto;
+    text-align: center;
+    padding: 3vh 0;
+    background: rgba(255, 255, 255, .8);
+    color: #000;
+}
+
+@keyframes rainbowGray {
+    0% { color: #fff; }
+    20% { color: #aaa; }
+    40% { color: #555; }
+    60% { color: #666; }
+    80% { color: #aaa; }
+    100% { color: #fff; }
+}
+
+@keyframes rainbow {
+    0% { color: #f00; }
+    20% { color: #0f0; }
+    40% { color: #00f; }
+    60% { color: #f0f; }
+    80% { color: #0f0; }
+    100% { color: #f00; }
+}
+
+@media only screen and (max-width: 640px) {
+    body {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    * {
+      font-size: calc(1vh + 1vw);
+    }
+}

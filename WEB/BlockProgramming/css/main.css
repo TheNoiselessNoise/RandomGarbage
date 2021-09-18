@@ -1,0 +1,355 @@
+:root {
+    --orange: orange;
+    --orange-s: #ff8700;
+    --orange-n: #ff6400;
+    --red: #ff3009;
+    --yellow: #ffbe0e;
+    --green: #6eff38;
+    --turquoise: turquoise;
+    --brown: brown;
+    --blue: blue;
+    --dodgerblue: dodgerblue;
+    --purple: #ff35c3;
+}
+
+.orange { background: var(--orange); }
+.red { background: var(--red); }
+.yellow { background: var(--yellow); }
+.green { background: var(--green); }
+.turquoise { background: var(--turquoise); }
+.purple { background: var(--purple); }
+
+* {
+    padding: 0;
+    margin: 0;
+
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+.block {
+    display: block;
+    min-width: 100px;
+}
+
+.block[data-id="event"] {
+    display: inline-block;
+    border-left: 15px solid var(--orange);
+}
+
+.block[data-id="event"] .start-block,
+.block[data-id="event"] .end-block {
+    background: var(--orange);
+}
+
+.block[data-id="if"] {
+    border-left: 15px solid var(--yellow);
+}
+
+.block[data-id="if"] .start-block,
+.block[data-id="if"] .end-block {
+    background: var(--yellow);
+}
+
+.block[data-id="if-else"] {
+    border-left: 15px solid var(--yellow);
+}
+
+.block[data-id="if-else"] .start-block,
+.block[data-id="if-else"] .middle-block,
+.block[data-id="if-else"] .end-block {
+    background: var(--yellow);
+}
+
+.block[data-id="repeat"] .start-block,
+.block[data-id="repeat"] .end-block {
+    background: var(--yellow);
+}
+
+.block[data-id="repeat"] {
+    border-left: 15px solid var(--yellow);
+}
+
+.block[data-id="forever"] .start-block,
+.block[data-id="forever"] .end-block {
+    background: var(--yellow);
+}
+
+.block[data-id="forever"] {
+    border-left: 15px solid var(--yellow);
+}
+
+.block > .start-block {
+    padding: .5em 0 .5em .5em;
+}
+
+.block > .middle-block {
+    padding: .5em 0 .5em .5em;
+}
+
+.block > .inner-blocks {
+    min-height: 1px;
+    padding: 1px 0 1px 1px;
+}
+
+.block > .inner-blocks > .row {
+    display: block;
+}
+
+.block > .end-block {
+    min-width: 100px;
+    min-height: 25px;
+}
+
+.block > .start-block > .attrs {
+    margin: 0 0 0 .5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.block > .start-block > .attrs > .attr {
+    display: inline-block;
+    min-width: 50px;
+    min-height: 25px;
+    padding: 1px;
+    background: #dadada;
+}
+
+.block > .start-block > .attrs > .attr[data-what="boolean"] {
+    border: 3px solid var(--green);
+}
+
+.block > .start-block > .attrs > .attr[data-what="string"] {
+    border: 3px solid var(--orange-s);
+}
+
+.block > .start-block > .attrs > .attr[data-what="number"] {
+    border: 3px solid var(--orange-n);
+    border-radius: 25%;
+}
+
+.data-block {
+    padding: .25em;
+    display: block;
+    min-width: 50px;
+    text-align: center;
+}
+
+.data-block[data-id="boolean"] {
+    background: var(--green);
+}
+
+.data-block[data-id="number"] {
+    background: var(--orange-n);
+    border-radius: 25%;
+}
+
+.data-block[data-id="string"] {
+    background: var(--orange-s);
+}
+
+.data-block[data-id="var-string"] {
+    background: var(--orange-s);
+}
+
+.data-block[data-id="var-number"] {
+    background: var(--orange-n);
+    border-radius: 25%;
+}
+
+.data-block[data-id="var-list"] {
+    background: var(--red);
+}
+
+.data-block[data-id="function"] {
+    background: var(--purple);
+}
+
+.data-block > .attrs {
+    display: inline-block;
+}
+
+.data-block > .attrs > .attr {
+    display: inline-block;
+    min-width: 50px;
+    min-height: 25px;
+    background: #dadada;
+    padding: 1px;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+.data-block > .attrs > .attr > .attr-text {
+    vertical-align: middle;
+}
+
+.data-block > .attrs > .attr[data-what="boolean"] {
+    border: 3px solid var(--green);
+}
+
+.data-block > .attrs > .attr[data-what="number"] {
+    border: 3px solid var(--orange-n);
+    border-radius: 25%;
+}
+
+.data-block > .attrs > .attr[data-what="string"] {
+    border: 3px solid var(--orange-s);
+}
+
+.inner-blocks > *:not(:first-child) {
+    margin-top: 1px;
+}
+
+html, body {
+    height: 100%;
+}
+
+#wrapper {
+    display: flex;
+    height: 100%;
+}
+
+#wrapper > #left-side {
+}
+
+#wrapper > #right-side {
+    flex: 1 1 1em;
+}
+
+#left-side {
+    position: relative;
+    padding: 1em;
+    border-right: 3px solid #000;
+}
+
+#left-side #nav-blocks {
+}
+
+#left-side #nav-blocks a {
+    text-decoration: none;
+    padding: .5em 1em;
+    color: #fff;
+}
+
+#left-side #nav-blocks a.active {
+    padding: 1.25em 1em .5em 1em;
+}
+
+#left-side #blocks {
+    display: inline-block;
+    margin-top: 3em;
+}
+
+#left-side #blocks .block  {
+    display: block;
+    cursor: pointer;
+}
+
+#left-side #blocks .block:not(:first-child),
+#left-side #blocks .data-block:not(:first-child) {
+    margin-top: 12px;
+}
+
+#right-side {
+    position: relative;
+}
+
+#left-side #trashbin {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+
+#left-side .block.active,
+#left-side .data-block.active {
+    box-shadow: 0 0 20px #000;
+}
+
+#left-side #blocks > div {
+    display: none;
+}
+
+#user-vars-control button {
+    outline: none;
+    padding: .5em .75em;
+    background: dodgerblue;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+#user-vars-control button:hover {
+    background: #46d3ff;
+}
+
+#forms {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    z-index: 3;
+    text-align: center;
+    font-size: calc(1vh + 1vw);
+    display: none;
+}
+
+#forms > form {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+#forms > form > h2 {
+    text-align: center;
+    padding: .5em 1em 0 1em;
+    color: dodgerblue;
+}
+
+#forms > form > .var-type {
+    padding: 0 1em;
+}
+
+#forms > form > .var-type > label {
+    display: block;
+    margin: 1em 0 0 0;
+    text-align: left;
+}
+
+#forms > form > .var-name {
+    margin: 1em auto;
+    border: 0;
+    border-bottom: 2px solid dodgerblue;
+    outline: none;
+    padding: 0 1em;
+    font-size: calc(1vh + 1vw);
+}
+
+#forms > form > .form-control {
+    display: block;
+    background: dodgerblue;
+    text-align: center;
+}
+
+#forms > form > .form-control > button {
+    padding: .5em;
+    outline: none;
+    background: dodgerblue;
+    border: 0;
+    color: #fff;
+    font-size: calc(1vh + 1vw);
+    cursor: pointer;
+}
+
+#forms > form > .form-control > button:hover {
+    background: #1bc5ff;
+}

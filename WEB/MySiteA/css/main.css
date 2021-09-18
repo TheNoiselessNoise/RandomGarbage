@@ -1,0 +1,186 @@
+@font-face {
+    font-family: DisposableDroidBB;
+    src: url('../fonts/DisposableDroidBB.ttf');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    font-size: calc(1.5vw + 1.5vh);
+    font-family: DisposableDroidBB, sans-serif;
+
+    transition: all ease-in-out .2s;
+    -o-transition: all ease-in-out .2s;
+    -ms-transition: all ease-in-out .2s;
+    -moz-transition: all ease-in-out .2s;
+    -webkit-transition: all ease-in-out .2s;
+}
+
+nav {
+    display: flex;
+    background: #4F4F4F;
+}
+
+nav a {
+    flex: 1 1 1em;
+    padding: 1em 0;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+}
+
+#tabs {
+    display: block;
+}
+
+#tabs .tab {
+    display: block;
+    padding: 1em;
+    /* background: rgba(20, 20, 20, .2); */
+}
+
+/* ABOUT ME TAB */
+#card_about {
+    border-radius: 3em;
+    padding: .5em;
+    border-left: 10px solid rgb(153, 6, 6);
+    border-right: 10px solid rgb(153, 6, 6);
+    background: rgba(0, 0, 0, .25);
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    color: #fff;
+    text-align: center;
+}
+
+#card_about:hover {
+    background: rgba(255, 255, 255, .25);
+}
+
+#card_about:not(:first-child){
+    margin: 1em auto 0 auto;
+}
+
+/* MY WORK TAB */
+#card_work {
+    border-radius: 3em;
+    padding: .5em;
+    border-left: 10px solid #b10b7a;
+    border-right: 10px solid #b10b7a;
+    background: rgba(0, 0, 0, .15);
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    color: #fff;
+    text-align: center;
+}
+
+#card_work:hover {
+    background: rgba(255, 255, 255, .15);
+}
+
+#card_work:not(:first-child){
+    margin: 1em auto 0 auto;
+}
+
+#card_work:last-child {
+    margin: 1em auto 1em auto;
+}
+
+#card_work table {
+    display: table !important;
+}
+
+#card_work table tr th,
+#card_work table tr td:not(.nopadd) {
+    padding: .5em .75em;
+}
+
+#card_work table tr th input[type='text'] {
+    outline: none;
+    width: 100%;
+    display: block;
+    text-align: center;
+    background: none;
+    border: 0;
+    color: #4F4F4F;
+}
+
+#card_work table tr:not(:first-child):hover {
+    background: rgba(0, 0, 0, .15);
+}
+
+#card_work table tr td a {
+    text-decoration: none;
+    color: #afe2ff;
+    word-wrap: break-word;
+}
+
+#card_work table tr:not(:last-child) th,
+#card_work table tr:not(:last-child) td {
+    border-bottom: 1px dashed #fff;
+}
+
+#card_work table tr th:not(:last-child),
+#card_work table tr td:not(:last-child) {
+    border-right: 1px dashed #fff;
+}
+
+/* LIFE TAB */
+#life_game progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+
+    display: block;
+    width: 100%;
+}
+
+#life_game progress#lifeTime[value]::-webkit-progress-value {
+    background: red;
+}
+
+#life_game table {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#life_game table,
+#life_game table tr,
+#life_game table tr td {
+    border-collapse: collapse;
+    border: 0px;
+}
+
+#life_game table tr td {
+    padding: .1em;
+}
+
+/* OTHER */
+*.width25 {
+    display: block;
+    width: 25% !important;
+}
+
+*.width50 {
+    display: block;
+    width: 50% !important;
+}
+
+*.width75 {
+    display: block;
+    width: 75% !important;
+}
+
+*.width100 {
+    display: block;
+    width: 100% !important;
+}
+
+*.underlined {
+    text-decoration: underline;
+}
+
+*.noborderradius {
+    border-radius: 0 !important;
+}

@@ -1,0 +1,23 @@
+{
+  "transparent": {
+    "name": "transparent",
+    "id": 0,
+    "stepable": false,
+    "revealed": true,
+    "revealable": false
+  },
+  "wall": {
+    "name": "wall",
+    "id": 1,
+    "stepable": false,
+    "revealed": false,
+    "revealable": true
+  },
+  "grass": {
+    "name": "grass",
+    "id": 2,
+    "stepable": true,
+    "revealed": false,
+    "revealable": true
+  }
+}

@@ -1,0 +1,41 @@
+# autoloader.js
+
+- file that will just load all needed javascript files in order
+
+# game.defaults.js
+
+- file containing all possible constants, making it easier to game settings
+
+# game.skeleton.js
+
+- file containing all possible functions to create base of the game
+
+# game.start.js
+
+- file containing p5's 'setup' and 'draw' function and other stuff that's p5 related
+
+# game.main.js
+
+- file containing all main game functions and stuff
+
+# game.imgmgr.js
+
+- file containing ImageManager class
+
+# game.lvlmgr.js
+
+- file containing LevelManager class
+
+# game.invmgr.js
+
+- file containing InventoryManager class
+
+# game.player.js
+
+- file containing Player class
+
+# NAMING OF VARIABLES
+
+- Game.STart.js -> let gst_variable = "something";
+- Game.SKeleton.js -> let gsk_variable = "something";
+- game.defaults.js -> DOES NOT MATTER, IT'S FILE WITH DEFAULTS

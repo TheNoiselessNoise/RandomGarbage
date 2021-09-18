@@ -1,0 +1,15 @@
+{
+  "player": {
+    "maxHealth": 100,
+    "health": 100,
+    "damage": 10,
+    "intelligence": 5,
+    "resistance": 3,
+    "inventory": [
+      {
+        "id": 0,
+        "count": 1
+      }
+    ]
+  }
+}

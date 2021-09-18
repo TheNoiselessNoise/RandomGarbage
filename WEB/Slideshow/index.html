@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slideshow</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #wrap {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        #wrap img {
+            width: 320px;
+            height: 240px;
+        }
+
+        #wrap #control {
+            display: flex;
+        }
+
+        #wrap #control * {
+            flex: 1 1 1em;
+            outline: none;
+            background: dodgerblue;
+            color: #FFF;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let pathToImages = "images/";
+        let images = [
+            "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"
+        ];
+
+        let index = 0;
+        function changeImage(step=0){
+            let img = document.getElementById("image");
+            index += step;
+
+            if(index > images.length - 1){ index = 0 };
+            if(index < 0){ index = images.length - 1 };
+
+            img.src = pathToImages + images[index];
+        }
+
+        let checked = false;
+        let presentationInterval;
+        let speed = 1000; // 1000 milliseconds = 1 sec
+        function presentation(){
+            let btn = document.getElementById("presentation");
+            checked = !checked;
+
+            btn.innerHTML = checked ? "STOP" : "START";
+            btn.style.background = checked ? "orange" : "dodgerblue";
+
+            if(checked){
+                presentationInterval = setInterval(function() {
+                    changeImage(1);
+                }, speed);
+            } else {
+                clearInterval(presentationInterval);
+            }
+        }
+
+        window.onload = function() {
+            changeImage();
+        }
+    </script>
+
+    <div id="wrap">
+        <img src="" id="image" alt="image">
+        <div id="control">
+            <button onclick="changeImage(-1)">LEFT</button>
+            <button onclick="changeImage(1)">RIGHT</button>
+            <button onclick="presentation()" id="presentation">START</button>
+        </div>
+    </div>
+</body>
+</html>

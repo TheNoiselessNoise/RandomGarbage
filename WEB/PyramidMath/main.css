@@ -1,0 +1,30 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+py-ramid {
+	display: block;
+	text-align: center;
+	margin: 3em auto;
+}
+
+py-row {
+	display: block;
+}
+
+py-block {
+	display: inline-block;
+	padding: 1.5em 2em;
+	border: 3px solid #000;
+	outline: none;
+}
+
+py-reset {
+	background: dodgerblue;
+	color: #fff;
+	display: block;
+	margin: 1em 0 0 0;
+	padding: .5em 1em;
+	cursor: pointer;
+}

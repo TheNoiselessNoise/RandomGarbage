@@ -1,0 +1,59 @@
+body, html {
+	background: #4F4F4F;
+}
+
+#theanknown {
+	text-align: center;
+}
+
+#theanknown span {
+	color: dodgerblue;
+}
+
+#revolutionForm {
+	width: 50%;
+	margin: 3em auto;
+	padding: 1em;
+	background: #4f4f4f;
+	color: #fff;
+	font-size: 1.5vw;
+}
+
+#revolutionForm label {
+	display: block;
+	width: 100%;
+}
+
+#revolutionForm input[type="text"] {
+	width: 100%;
+	outline: none;
+	border-radius: 5px;
+	-webkit-transition: all ease-in-out .2s;
+	-o-transition: all ease-in-out .2s;
+	transition: all ease-in-out .2s;
+	text-align: center;
+	padding: .5em 0;
+	border: 1px solid orange;
+	font-size: 2vw;
+}
+
+#revolutionForm input:focus {
+	border: 1px solid dodgerblue;
+}
+
+#revolutionForm input[type="submit"]{
+	width: 100%;
+	background: dodgerblue;
+	color: #fff;
+	border: 0px;
+	outline: none;
+	padding: 1em;
+	cursor: pointer;
+	-webkit-transition: all ease-in-out .2s;
+	-o-transition: all ease-in-out .2s;
+	transition: all ease-in-out .2s;
+}
+
+#revolutionForm input[type="submit"]:hover {
+	box-shadow: 3px 3px 0 #000;
+}

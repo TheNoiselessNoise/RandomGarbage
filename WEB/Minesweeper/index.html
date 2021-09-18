@@ -1,0 +1,85 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minesweeper</title>
+
+        <script src="jquery.min.js" charset="utf-8"></script>
+        <script src="p5.min.js" charset="utf-8"></script>
+        <script src="minesweeper.js" charset="utf-8"></script>
+
+        <style>
+        * {
+            user-select: none;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        #menu, #reset {
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        #custom input, input[type=checkbox], #reset {
+            display: none;
+        }
+
+        input[type=checkbox]:checked ~ #custom input {
+            display: block;
+        }
+
+        input[type=checkbox]:checked ~ label {
+            background: salmon;
+        }
+
+        input, label[for=checkbox] {
+            color: #fff;
+            padding: 2vw 0;
+            font-size: 2vw;
+            display: block;
+            background: dodgerblue;
+            border: 0px;
+            border-radius: 0px;
+            outline: none;
+            text-align: center;
+            width: 100%;
+            margin: .5em 0;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: #fff;
+        }
+
+        canvas {
+            display: none;
+            margin: 0 auto;
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Minesweeper</h1>
+
+        <div id="menu">
+            <input type="button" id="difficulty" data-value="7;8;10" value="Beginner">
+            <input type="button" id="difficulty" data-value="15;9;14" value="Easy">
+            <input type="button" id="difficulty" data-value="40;15;20" value="Intermediate">
+            <input type="button" id="difficulty" data-value="99;19;26" value="Expert">
+            <input id="checkbox" type="checkbox">
+            <label class="button" for="checkbox">Custom...</label>
+            <div id="custom">
+                <input type="number" id="bombs" min="1" max="2500" placeholder="Bombs">
+                <input type="number" class="change" id="width" min="2" max="50" placeholder="Width">
+                <input type="number" class="change" id="height" min="2" max="50" placeholder="Height">
+                <input type="button" onclick="customMenu()" value="Start">
+            </div>
+        </div>
+        <div id="reset">
+            <input type="button" onclick="reset()" value="Reset">
+            <input type="button" onclick="changeSettings()" value="Change Settings">
+        </div>
+    </body>
+</html>

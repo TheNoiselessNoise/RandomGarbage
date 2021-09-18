@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>SlideGame Level Editor</title>
+	<link rel="stylesheet" href="css/editor/main.css">
+	<link rel="stylesheet" href="css/editor/default.min.css">
+	<script src="scripts/editor/highlight.min.js"></script>
+	<script src="scripts/editor/main.js"></script>
+</head>
+<body>
+	<header>
+		<button onclick="saveLevel()">SAVE&nbsp;LEVEL</button>    
+		<button onclick="testLevel()">TEST&nbsp;LEVEL</button>    
+		<span>LEVEL EDITOR</span>
+		<button onclick="showTutorial()">TUTORIAL</button>
+	</header>
+	
+	<div id="wrapper">
+		<div id="levelSettings">
+			<h3>LEVEL SETTINGS</h3>
+			<label for="title">TITLE: </label>
+			<input type="text" id="title" value="test">
+			
+			<label for="playerFill">Will Player FILL the map?</label>
+			<input type="checkbox" id="playerFill" onclick="showHideElement(getEle('#steppedBlocks')[0])">
+
+			<div id="steppedBlocks" style="display: none">
+				<label for="steppedBlocksStepable">Will STEPPED BLOCKS be stepable again?</label>
+				<input type="checkbox" id="steppedBlocksStepable">
+			</div>
+			
+			<label for="rows">ROWS: </label>
+			<input type="number" id="rows" value="5">
+
+			<label for="cols">COLS: </label>
+			<input type="number" id="cols" value="5">
+			
+			<button onclick="createGrid()">CREATE GRID</button>
+		</div>
+		
+		<div id="playerSettings">
+			<h3>PLAYER POSITION</h3>
+			<label for="player_row">ROWS: </label>
+			<input 
+				disabled 
+				type="number" 
+				id="player_row"
+				placeholder="CREATE GRID" 
+				onfocus="colorPosition(this, getEle('#player_col')[0])"
+				oninput="colorPosition(this, getEle('#player_col')[0])"
+				onblur="updateBlocks()">
+			<br>
+			
+			<label for="player_col">COLS: </label>
+			<input 
+				disabled 
+				type="number" 
+				id="player_col"
+				placeholder="CREATE GRID" 
+				onfocus="colorPosition(getEle('#player_row')[0], this)"
+				oninput="colorPosition(getEle('#player_row')[0], this)"
+				onblur="updateBlocks()">
+		</div>
+		
+		<div id="blockTypes">
+			<h3>BLOCK TYPES</h3>
+			<select id="blockType" disabled>
+				<option value="">CREATE GRID</option>
+				<option value="DOOR">DOOR (can be locked or open for design purpose)</option>
+				<option value="EMPTY">EMPTY (blocks that doesn't count if player fills map)</option>
+				<option value="FINISH">FINISH (finishes the level)</option>
+				<option value="PATH">PATH (simple block)</option>
+				<option value="RESET">RESET (resets the level)</option>
+				<option value="STEPPED">STEPPED (block that player stepped on)</option>
+				<option value="SWITCH">SWITCH (can destroy side block or change any block)</option>
+				<option value="TELEPORT">TELEPORT (teleports player to x,y location)</option>
+				<option value="TRAMPOLIN">TRAMPOLIN (fastens the player)</option>
+				<option value="TRAP">TRAP (if trap is open and player stands on it, player will die)</option>
+				<option value="WALL">WALL (simple wall, player can't get through)</option>
+			</select>
+
+			<h3>ENEMIES</h3>
+			<div id="column">
+				<label for="enemy_row">ROW:</label>
+				<input 
+					disabled 
+					type="number" 
+					id="enemy_row"
+					placeholder="CREATE GRID" 
+					onfocus="colorPosition(this, getEle('#enemy_col')[0])"
+					oninput="colorPosition(this, getEle('#enemy_col')[0])"
+					onblur="updateBlocks()">
+
+				<label for="enemy_col">COL:</label>
+				<input 
+					disabled 
+					type="number" 
+					id="enemy_col"
+					placeholder="CREATE GRID" 
+					onfocus="colorPosition(getEle('#enemy_row')[0], this)"
+					oninput="colorPosition(getEle('#enemy_row')[0], this)"
+					onblur="updateBlocks()">
+			</div>
+		
+			<div id="column">
+				<label for="enemy_move">MOVEMENT (the lower the faster):</label>
+				<input disabled type="number" id="enemy_move" min="0" max="10">
+				
+				<label for="enemy_typemove">TYPE OF MOVEMENT:</label>
+				<select id="enemy_typemove" disabled>
+					<option value="">CREATE GRID</option>
+					<option value="false">ONE</option>
+					<option value="true">FULL</option>
+				</select>
+			</div>
+			
+			<button id="addEnemyButton" onclick="addEnemy()" disabled>ADD ENEMY (1)</button>
+
+			<div id="enemies"></div>
+		</div>
+	</div>
+	
+	<div id="grid"></div>
+	
+	<div id="blockWrapper">
+		<div id="blockSettings" style="display: none">
+			<h3>BLOCK OPTIONS (<span id="blockName"></span>) [X: <span id="colIndex"></span> Y: <span id="rowIndex"></span>]</h3>
+			<div id="block"></div>
+		</div>
+	</div>
+	
+	<div id="result">
+		<pre>
+			<code id="code" class="javascript"></code>
+		</pre>
+	</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    transition: all ease-in-out .2s;
+    -o-transition: all ease-in-out .2s;
+    -ms-transition: all ease-in-out .2s;
+    -moz-transition: all ease-in-out .2s;
+    -webkit-transition: all ease-in-out .2s;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    flex-direction: row;
+    background: #4F4F4F;
+}
+
+nav a {
+    flex: 1 1 1em;
+    padding: 1em 0;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, .3);
+}
+
+div#form-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+#settingsForm.closed {
+    display: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto 1em auto;
+    text-align: center;
+
+    border-left: 5px solid #4F4F4F;
+    border-bottom: 5px solid #4F4F4F;
+    border-right: 5px solid #4F4F4F;
+}
+
+form * {
+    padding: 1em 0;
+    text-align: center;
+}
+
+form h3 {
+    background: #4F4F4F;
+    color: #fff;
+}
+
+input[type='text'], input[type='password'], textarea {
+    outline: none;
+    border: 0;
+    border-radius: 0;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type='submit'] {
+    outline: none;
+    border: 0;
+    border-radius: 0;
+    background: dodgerblue;
+    cursor: pointer;
+}
+
+form a {
+    text-decoration: none;
+    color: #000;
+}
+
+wr-ap {
+    display: flex;
+    flex-direction: column;
+}
+
+wr-ap > h3 {
+    flex: 1 1 1em;
+    padding: 1em 0;
+    text-align: center;
+    background: dodgerblue;
+}
+
+wr-ap > a {
+    flex: 1 1 1em;
+    padding: 1em 0;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+wr-ap > p {
+    width: 50%;
+    margin: 1.5em auto;
+    text-align: center;
+}
+
+wr-ap > a:hover, wr-ap div:hover {
+    background: rgba(20, 20, 20, .2);
+}
+
+wr-ap > a:not(:first-child) {
+    border-top: 1px solid #000;
+}
+
+wr-ap > div {
+    display: flex;
+    flex-direction: row;
+}
+
+wr-ap > div * {
+    flex: 1 1 1em;
+    text-align: center;
+    padding: 1em 0;
+}
+
+wr-ap > div a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+acc-ount {
+    display: block;
+    width: 50%;
+    margin: 1.5em auto;
+    padding: 1em;
+    border: 1px solid #000;
+    border-radius: 50px;
+    box-shadow: 0 5px #000, 0 5px inset #000;
+
+    position: relative;
+}
+
+acc-ount #settings {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: calc(1.25vh + 1.25vw);
+    cursor: pointer;
+}
+
+acc-ount img {
+    display: block;
+    width: 64px;
+    margin: 0 auto;
+}
+
+acc-ount h3, h4 {
+    text-align: center;
+}
